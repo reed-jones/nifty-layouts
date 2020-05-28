@@ -35,7 +35,11 @@ const Layout = {
     }
 };
 
-// 'Automatic requirer'
+// the 'Undocumented Automatic Requirer'
+// example usage: layoutRequire(require.context('./', false, /\.vue$/)),
+// will automatically require all layout files in the 'layout' folder
+// due to the hardcoded regex, this will always only remove ./ from
+// the start of the path, (put this file in the layouts folder)
 export function layoutRequire(req) {
     return req.keys().reduce((acc, cur) => {
         const component = req(cur);
