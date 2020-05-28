@@ -1,7 +1,16 @@
 {
-    "name": "@jonz/nifty-layouts",
+    "name": "@j0nz/nifty-layouts",
     "version": "1.0.0",
     "description": "Dynamic Vue Layouts for your SPA",
+    "keywords": [
+        "vue",
+        "spa",
+        "phase",
+        "vue-router"
+    ],
+    "repository": "github:reed-jones/nifty-layouts",
+    "homepage": "https://github.com/reed-jones/nifty-layouts#readme",
+    "bugs": "https://github.com/reed-jones/nifty-layouts/issues",
     "main": "dist/nifty-layouts.cjs.js",
     "module": "dist/nifty-layouts.esm.js",
     "browser": "dist/nifty-layouts.umd.js",
@@ -17,9 +26,12 @@
         "build": "rollup -c",
         "dev": "rollup -c -w",
         "test": "node test/test.js",
-        "pretest": "npm run build"
+        "pretest": "yarn build"
     },
     "files": [
         "dist"
-    ]
+    ],
+    "peerDependencies": {
+        "vue-router": "^3.1.6"
+    }
 }

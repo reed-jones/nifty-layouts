@@ -3,6 +3,12 @@
 Make Page Layouts for your Vue Single Page Apps easy.
 
 ## Install & Setup
+```sh
+yarn add @j0nz/nifty-layouts
+# Or
+npm install @j0nz/nifty-layouts
+```
+
 ```js
 import Vue from 'vue'
 import App from './App.vue'

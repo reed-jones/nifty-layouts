@@ -49,7 +49,7 @@ export function layoutRequire(req) {
 }
 
 // NiftyLayout constructor class
-class NiftyLayouts {
+export default class NiftyLayouts {
     constructor(opts) {
         const { layouts = {}, currentLayout = () => { } } = opts
 
@@ -95,5 +95,3 @@ NiftyLayouts.install = function (Vue, options) {
 
     Vue.component('NiftyLayout', Layout)
 }
-
-export default NiftyLayouts
