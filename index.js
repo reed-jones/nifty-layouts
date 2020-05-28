@@ -1,7 +1,7 @@
 // LayoutComponent
 const Layout = {
     functional: true,
-    render(_, { parent, data, props, ...rest }) {
+    render(_, { parent, data, props }) {
         const layout = parent.$layout
         const h = parent.$createElement
         const {
@@ -53,20 +53,20 @@ class NiftyLayouts {
     constructor(opts) {
         const { layouts = {}, currentLayout = () => { } } = opts
 
-        // this._layouts = Object.fromEntries(Object.entries(layouts).map(([name, mod]) => {
-        //     return [name, mod]
-        // }))
         this._layouts = layouts
 
         this._layoutFinder = currentLayout
     }
 
     init(app) {
-        this.app = this.app ?? app
+        // We will just register and keep the first 'app'
+        // doesn't really matter for our purposes since
+        // we just want the $root
+        this.app = this.app ?? app.$root
     }
 
     get active() {
-        const name = this._layoutFinder.bind(this.app.$root)(this.app.$route, this.app.$store)
+        const name = this._layoutFinder.bind(this.app.$root)()
         return { component: this._layouts[name], name }
     }
 }
@@ -83,7 +83,6 @@ NiftyLayouts.install = function (Vue, options) {
             this._layoutRoot = this
             this._layout = this.$options.layout
             this._layout.init(this)
-            // Vue.util.defineReactive(this, '_layout', this._layout)
             } else {
             this._layoutRoot = (this.$parent && this.$parent._layout) || this
           }

@@ -1,0 +1,25 @@
+{
+    "name": "@jonz/nifty-layouts",
+    "version": "1.0.0",
+    "description": "Dynamic Vue Layouts for your SPA",
+    "main": "dist/nifty-layouts.cjs.js",
+    "module": "dist/nifty-layouts.esm.js",
+    "browser": "dist/nifty-layouts.umd.js",
+    "author": "Reed Jones <reedjones@reedjones.com>",
+    "license": "ISC",
+    "devDependencies": {
+        "@babel/preset-env": "^7.10.1",
+        "@rollup/plugin-babel": "^5.0.2",
+        "rollup": "^2.11.0",
+        "rollup-plugin-terser": "^6.1.0"
+    },
+    "scripts": {
+        "build": "rollup -c",
+        "dev": "rollup -c -w",
+        "test": "node test/test.js",
+        "pretest": "npm run build"
+    },
+    "files": [
+        "dist"
+    ]
+}
